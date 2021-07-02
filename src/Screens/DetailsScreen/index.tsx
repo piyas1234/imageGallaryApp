@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 import {View, Text, Image, ScrollView} from 'react-native';
 import {NavbarContext} from '../../Global/Context';
 import TopNav from '../../Navigation/TopNav';
-import CachedImage from 'react-native-image-cache-wrapper';
+// import CachedImage from 'react-native-image-cache-wrapper';
 const DetailsScreen = (props: any) => {
   const {data, setData}: any = useContext(NavbarContext);
   const {id} = props.route.params || data[0];
@@ -13,7 +13,7 @@ const DetailsScreen = (props: any) => {
     <View style={styles.main}>
       <TopNav />
       <Text style={styles.title}>{item.title}</Text>
-      <CachedImage style={styles.image} source={{uri: item.url_s}} />
+      <Image style={styles.image} source={{uri: item.url_s}} />
       <ScrollView>
         <Text style={styles.text}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit

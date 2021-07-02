@@ -20,7 +20,7 @@ const ImageCart = (props: ImageCartProps) => {
       onPress={() => navigator.navigate('Detail',{id:id})}
       style={styles.container}>
       <View style={styles.main}>
-        <CachedImage style={styles.image} source={{uri: url_s}} />
+        <Image style={styles.image} source={{uri: url_s}} />
       </View>
     </TouchableOpacity>
     // </Pressable>

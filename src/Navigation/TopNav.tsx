@@ -1,12 +1,14 @@
-import React, {useContext} from 'react';
-import {StyleSheet} from 'react-native';
+import React, {useContext, useState} from 'react';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import {View, Text} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {NavbarContext} from '../Global/Context';
 const TopNav = () => {
-  const {sildeNav, setSildeNav}: any = useContext(NavbarContext);
-  console.log(sildeNav);
+  const {sildeNav, setSildeNav, search, setSearch}: any = useContext(NavbarContext);
+  const [input, setInput] = useState('')
+  console.log(search);
+
   return (
     <View style={styles.main}>
       <MaterialIcons
@@ -16,11 +18,14 @@ const TopNav = () => {
         name="menu"
       />
       <TextInput
+        onChangeText={text => setInput(text)}
         placeholderTextColor="white"
         placeholder="#Search Image..."
         style={styles.input}
       />
-      <MaterialIcons color="white" size={50} name="search" />
+       <TouchableOpacity onPress={()=>setSearch(input)}>
+       <MaterialIcons color="white" size={50} name="search" />
+       </TouchableOpacity>
     </View>
   );
 };
